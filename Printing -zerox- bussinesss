@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PrintHub - Printing & Online Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            padding: 80px 7%;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 55px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin: 12px 0;
+        }
+
+        .icon {
+            font-size: 40px;
+        }
+
+        .order-box {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .contact {
+            text-align: center;
+            background: #e8eefc;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width:600px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🖨️ PrintHub</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="home">
+    <h1>Printing & Online Services</h1>
+
+    <p>
+        Fast • Affordable • Reliable
+    </p>
+
+    <a href="#order" class="btn">Place Your Order</a>
+</section>
+
+
+<section id="services">
+
+    <h2 class="title">Our Services</h2>
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>Xerox</h3>
+            <p>Black & White / Colour Xerox</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖨️</div>
+            <h3>Printing</h3>
+            <p>Documents, Projects & Applications</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📑</div>
+            <h3>Scanning</h3>
+            <p>High quality document scanning</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h3>Project Printing</h3>
+            <p>College projects & assignments</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Online Services</h3>
+            <p>Applications, Forms & Certificates</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📸</div>
+            <h3>Photo Printing</h3>
+            <p>Passport & Photo Prints</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="order">
+
+    <h2 class="title">Place Your Order</h2>
+
+    <div class="order-box">
+
+        <form onsubmit="placeOrder(event)">
+
+            <label>Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" id="phone" placeholder="Enter mobile number"
+                   pattern="[0-9]{10}" required>
+
+            <label>Select Service</label>
+
+            <select id="service" required>
+                <option value="">Select Service</option>
+                <option>Xerox</option>
+                <option>Printing</option>
+                <option>Scanning</option>
+                <option>Project Printing</option>
+                <option>Online Services</option>
+                <option>Photo Printing</option>
+            </select>
+
+            <label>Number of Pages</label>
+            <input type="number" id="pages" min="1" placeholder="Example: 10" required>
+
+            <label>Additional Message</label>
+            <textarea id="message" rows="4"
+                      placeholder="Any special instructions"></textarea>
+
+            <button type="submit">Submit Order</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p style="margin-top:15px;">
+        📞 Phone: 98765 43210
+    </p>
+
+    <p style="margin-top:10px;">
+        📍 Your Location
+    </p>
+
+    <p style="margin-top:10px;">
+        ⏰ Open: 9:00 AM - 9:00 PM
+    </p>
+
+</section>
+
+
+<footer>
+    <p>© 2026 PrintHub. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+
+function placeOrder(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+    let pages = document.getElementById("pages").value;
+
+    let orderId = "PH" + Math.floor(10000 + Math.random() * 90000);
+
+    alert(
+        "Order Submitted Successfully! 🎉\n\n" +
+        "Order ID: " + orderId + "\n" +
+        "Name: " + name + "\n" +
+        "Service: " + service + "\n" +
+        "Pages: " + pages
+    );
+
+    document.querySelector("form").reset();
+}
+
+</script>
+
+</body>
+</html>
